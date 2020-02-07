@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="_36ae70e9 flex flex-row flex-wrap pb5 ph3-l mw-100 mt4-ns mt1 center-ns mh1" id="top">
+    <div class="w-100 ph0-l ph3 ph4-m"><h2
+            class="cd6ce1fd flex flex-column w-100 fw6 mt3 black dib ma0 tracked-tight no-underline hover-black f3-ns">
+        <span class="_50685029 truncate flex-auto" title="git-release-notes">git-release-notes</span></h2><span
+            class="_76473bea f6 dib ph0 pv2 mb2-ns black-80 nowrap f5 fw4 lh-copy">5.0.0
+        <!-- -->&nbsp;•&nbsp;</span><span
+            class="_813b53b2 _76473bea f6 dib ph0 pv2 mb2-ns black-80 nowrap f5 fw4 lh-copy green">Public</span><span
+            class="_76473bea f6 dib ph0 pv2 mb2-ns black-80 nowrap f5 fw4 lh-copy">&nbsp;•&nbsp;Published <time
+            datetime="2019-07-22T23:28:22.908Z" title="2019-7-22 23:28:22">7 months ago</time></span></div>
+    <div class="_6620a4fd mw8-l mw-100 w-100 w-two-thirds-l ph3-m pt2 pl0-ns pl2 order-1-m order-0-ns order-1 order-2-m">
+        <section class="e22ba268 ph2 ph0-ns ml0-ns mr3-ns black-80">
+            <div class="">
+                <article>
+                    <div class="_6d9832ac pr4-ns pl0-ns ph1-m pr3-m pr2  markdown" id="readme">
+                        <h2><a aria-hidden="true" class="deep-link" href="#release-notes"
+                               id="user-content-release-notes" rel="nofollow">
+                            <svg aria-hidden="true" class="deep-link-icon" height="16" version="1.1" viewBox="0 0 16 16"
+                                 width="16">
+                                <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                            </svg>
+                        </a>Release Notes
+                        </h2>
+                        <p>Generate release note pages from git commit history.</p>
+                        <h3><a aria-hidden="true" class="deep-link" href="#installation" id="user-content-installation"
+                               rel="nofollow">
+                            <svg aria-hidden="true" class="deep-link-icon" height="16" version="1.1" viewBox="0 0 16 16"
+                                 width="16">
+                                <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                            </svg>
+                        </a>Installation
+                        </h3>
+                        <p>It's preferable to install it globally through <a
+                                href="https://www.npmjs.com/package/git-release-notes"
+                                rel="nofollow"><code>npm</code></a></p>
+                        <pre><code>npm install -g git-release-notes
+</code></pre>
+                        <p>It's also possible to use <code>git-release-notes</code> as a node module. Check the usage on
+                            <a href="#Usage_as_a_module" rel="nofollow">usage as a module</a></p>
+                        <h3><a aria-hidden="true" class="deep-link" href="#usage" id="user-content-usage"
+                               rel="nofollow">
+                            <svg aria-hidden="true" class="deep-link-icon" height="16" version="1.1" viewBox="0 0 16 16"
+                                 width="16">
+                                <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                            </svg>
+                        </a>Usage
+                        </h3>
+                        <p>The basic usage from the command line is</p>
+                        <pre><code>cd &lt;your_git_project&gt;
+git-release-notes &lt;since&gt;..&lt;until&gt; &lt;template&gt;
+</code></pre>
+                        <p>Where</p>
+                        <ul>
+                            <li><code>&lt;since&gt;..&lt;until&gt;</code> specifies the range of commits as in <code>git
+                                log</code>, see <a
+                                    href="http://www.kernel.org/pub/software/scm/git/docs/gitrevisions.html"
+                                    rel="nofollow">gitrevisions(7)</a></li>
+                            <li><code>&lt;template&gt;</code> is an <a href="https://github.com/visionmedia/ejs"
+                                                                       rel="nofollow">ejs</a> template file used to
+                                generate the release notes
+                            </li>
+                        </ul>
+                        <p>Three sample templates are included as a reference in the <code>templates</code> folder</p>
+                        <ul>
+                            <li><code>markdown</code> <a
+                                    href="https://github.com/ariatemplates/git-release-notes/blob/master/samples/output-markdown.md"
+                                    rel="nofollow">(sample)</a></li>
+                            <li><code>html</code> <a
+                                    href="http://htmlpreview.github.io/?https://github.com/ariatemplates/git-release-notes/blob/master/samples/output-html.html"
+                                    rel="nofollow">(sample)</a></li>
+                            <li><code>html-bootstrap</code> <a
+                                    href="http://htmlpreview.github.io/?https://github.com/ariatemplates/git-release-notes/blob/master/samples/output-html-bootstrap.html"
+                                    rel="nofollow">(sample)</a></li>
+                        </ul>
+                        <p>This for example is the release notes generated for <code>joyent/node</code> by running</p>
+                        <pre><code>git-release-notes v0.9.8..v0.9.9 html &gt; changelog.html
+</code></pre>
+                        <p><a href="https://github.com/ariatemplates/git-release-notes/raw/master/samples/node.png"
+                              rel="nofollow"><img
+                                alt="Node's release notes"
+                                src="https://github.com/ariatemplates/git-release-notes/raw/master/samples/node_thumb.png"></a></p>
+                        <h4><a aria-hidden="true" class="deep-link" href="#custom-template"
+                               id="user-content-custom-template" rel="nofollow">
+                            <svg aria-hidden="true" class="deep-link-icon" height="16" version="1.1" viewBox="0 0 16 16"
+                                 width="16">
+                                <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                            </svg>
+                        </a>Custom template
+                        </h4>
+                        <p>The second parameter of <code>git-release-notes</code> can be any path to a valid ejs
+                            template files.</p>
+                        <h5><a aria-hidden="true" class="deep-link" href="#template-variables"
+                               id="user-content-template-variables" rel="nofollow">
+                            <svg aria-hidden="true" class="deep-link-icon" height="16" version="1.1" viewBox="0 0 16 16"
+                                 width="16">
+                                <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                            </svg>
+                        </a>Template Variables
+                        </h5>
+                        <p>Several template variables are made available to the script running inside the template.</p>
+                        <p><code>commits</code> is an array of commits, each containing</p>
+                        <ul>
+                            <li><code>sha1</code> commit hash (%H)</li>
+                            <li><code>authorName</code> author name (%an)</li>
+                            <li><code>authorEmail</code> author email (%ae)</li>
+                            <li><code>authorDate</code> author date (%aD)</li>
+                            <li><code>committerName</code> committer name (%cn)</li>
+                            <li><code>committerEmail</code> committer email (%ce)</li>
+                            <li><code>committerDate</code> committer date (%cD)</li>
+                            <li><code>title</code> subject (%s)</li>
+                            <li><code>tag</code> tag (%D)</li>
+                            <li><code>messageLines</code> array of body lines (%b)</li>
+                        </ul>
+                        <p><code>dateFnsFormat</code> is the date-fns <a href="https://date-fns.org/docs/format"
+                                                                         rel="nofollow">format</a> function. See the <a
+                                href="https://github.com/ariatemplates/git-release-notes/blob/master/templates/html-bootstrap.ejs"
+                                rel="nofollow">html-bootstrap</a> for sample usage.</p>
+                        <p><code>range</code> is the commits range as passed to the command line</p>
+                        <h3><a aria-hidden="true" class="deep-link" href="#options" id="user-content-options"
+                               rel="nofollow">
+                            <svg aria-hidden="true" class="deep-link-icon" height="16" version="1.1" viewBox="0 0 16 16"
+                                 width="16">
+                                <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                            </svg>
+                        </a>Options
+                        </h3>
+                        <p>More advanced options are</p>
+                        <ul>
+                            <li><code>p</code> or <code>path</code> Git project path, defaults to the current working
+                                path
+                            </li>
+                            <li><code>b</code> or <code>branch</code> Git branch, defaults to <code>master</code></li>
+                            <li><code>t</code> or <code>title</code> Regular expression to parse the commit title (see
+                                next chapter)
+                            </li>
+                            <li><code>i</code> or <code>ignore-case</code> Ignore case flag for title's regular
+                                expression. <code>/.*/</code> becomes <code>/.*/i</code></li>
+                            <li><code>m</code> or <code>meaning</code> Meaning of capturing block in title's regular
+                                expression
+                            </li>
+                            <li><code>f</code> or <code>file</code> JSON Configuration file, better option when you
+                                don't want to pass all parameters to the command line, for an example see <a
+                                        href="https://github.com/ariatemplates/git-release-notes/blob/master/options.json"
+                                        rel="nofollow">options.json</a></li>
+                            <li><code>s</code> or <code>script</code> External script for post-processing commits</li>
+                            <li><code>c</code> or <code>merge-commits</code> List only merge commits, <code>git
+                                log</code> command is executed with the <code>--merges</code> flag instead of <code>--no-merges</code>
+                            </li>
+                            <li><code>o</code> or <code>gitlog-option</code> to add some additional git log options
+                                <strong>and</strong> ignores the <code>merge-commits</code> option, this is direct given
+                                to <code>git log</code> by adding a <code>--</code> to each longname option from the
+                                array (e.g. <code>-o first-parent</code>).
+                            </li>
+                        </ul>
+                        <h4><a aria-hidden="true" class="deep-link" href="#title-parsing"
+                               id="user-content-title-parsing" rel="nofollow">
+                            <svg aria-hidden="true" class="deep-link-icon" height="16" version="1.1" viewBox="0 0 16 16"
+                                 width="16">
+                                <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                            </svg>
+                        </a>Title Parsing
+                        </h4>
+                        <p>Some projects might have special naming conventions for the commit title.</p>
+                        <p>The options <code>t</code> and <code>m</code> allow to specify this logic and extract
+                            additional information from the title.</p>
+                        <p>For instance, <a href="https://github.com/ariatemplates/ariatemplates" rel="nofollow">Aria
+                            Templates</a> has the following convention</p>
+                        <pre><code>fix #123 Title of a bug fix commit
+feat #234 Title of a cool new feature
+</code></pre>
+                        <p>In this case using</p>
+                        <pre><code>git-release-notes -t "^([a-z]+) #(\d+) (.*)$" -m type -m issue -m title v1.3.6..HEAD html
+</code></pre>
+                        <p>generates the additional fields on the commit object</p>
+                        <ul>
+                            <li><code>type</code> first capturing block</li>
+                            <li><code>issue</code> second capturing block</li>
+                            <li><code>title</code> third capturing block (redefines the title)</li>
+                        </ul>
+                        <p>Another project using similar conventions is <a href="https://github.com/angular/angular.js"
+                                                                           rel="nofollow">AngularJs</a>, <a
+                                href="https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#"
+                                rel="nofollow">commit message conventions</a>.</p>
+                        <pre><code>git-release-notes -t "^(\w*)(?:\(([\w\$\.]*)\))?\: (.*)$" -m type -m scope -m title v1.1.2..v1.1.3 markdown
+</code></pre>
+                        <h4><a aria-hidden="true" class="deep-link" href="#post-processing"
+                               id="user-content-post-processing" rel="nofollow">
+                            <svg aria-hidden="true" class="deep-link-icon" height="16" version="1.1" viewBox="0 0 16 16"
+                                 width="16">
+                                <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                            </svg>
+                        </a>Post Processing
+                        </h4>
+                        <p>The advanced options cover the most basic use cases, however sometimes you might need some
+                            additional processing, for instance to get commit metadata from external sources (Jira,
+                            GitHub, Waffle...)</p>
+                        <p>Using <code>-s script_file.js</code> you can invoke any arbitrary node script with the
+                            following signature:</p>
+                        <div class="highlight js">
+                            <pre class="editor editor-colors"><div class="line"><span class="source js"><span
+                                    class="support variable js"><span>module</span></span><span
+                                    class="meta function js"><span
+                                    class="meta delimiter method period js"><span>.</span></span><span
+                                    class="entity name function js"><span>exports</span></span><span>&nbsp;</span><span
+                                    class="keyword operator assignment js"><span>=</span></span><span>&nbsp;</span><span
+                                    class="storage type function js"><span>function</span></span><span
+                                    class="meta js"><span
+                                    class="punctuation definition begin round js"><span>(</span></span><span
+                                    class="variable function js"><span>data</span></span><span
+                                    class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;</span><span
+                                    class="variable function js"><span>callback</span></span><span
+                                    class="punctuation definition end round js"><span>)</span></span></span></span><span>&nbsp;</span><span
+                                    class="punctuation definition function begin curly js"><span>{</span></span></span></div><div
+                                    class="line"><span class="source js"><span>&nbsp;&nbsp;</span><span
+                                    class="comment block documentation js"><span
+                                    class="punctuation definition comment js"><span>/**</span></span></span></span></div><div
+                                    class="line"><span class="source js"><span
+                                    class="comment block documentation js"><span>&nbsp;&nbsp;&nbsp;*&nbsp;Here&nbsp;`data`&nbsp;contains&nbsp;exactly&nbsp;the&nbsp;same&nbsp;values&nbsp;your&nbsp;template&nbsp;will&nbsp;normally&nbsp;receive.&nbsp;e.g.</span></span></span></div><div
+                                    class="line"><span class="source js"><span
+                                    class="comment block documentation js"><span>&nbsp;&nbsp;&nbsp;*</span></span></span></div><div
+                                    class="line"><span class="source js"><span
+                                    class="comment block documentation js"><span>&nbsp;&nbsp;&nbsp;*&nbsp;{</span></span></span></div><div
+                                    class="line"><span class="source js"><span
+                                    class="comment block documentation js"><span>&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;commits:&nbsp;[],&nbsp;//&nbsp;the&nbsp;array&nbsp;of&nbsp;commits&nbsp;as&nbsp;described&nbsp;above</span></span></span></div><div
+                                    class="line"><span class="source js"><span
+                                    class="comment block documentation js"><span>&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;range:&nbsp;'&lt;since&gt;..&lt;until&gt;',</span></span></span></div><div
+                                    class="line"><span class="source js"><span
+                                    class="comment block documentation js"><span>&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;dateFnsFormat:&nbsp;function&nbsp;()&nbsp;{},</span></span></span></div><div
+                                    class="line"><span class="source js"><span
+                                    class="comment block documentation js"><span>&nbsp;&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;debug:&nbsp;function()&nbsp;{},&nbsp;//&nbsp;utility&nbsp;function&nbsp;to&nbsp;log&nbsp;debug&nbsp;messages</span></span></span></div><div
+                                    class="line"><span class="source js"><span
+                                    class="comment block documentation js"><span>&nbsp;&nbsp;&nbsp;*&nbsp;}</span></span></span></div><div
+                                    class="line"><span class="source js"><span
+                                    class="comment block documentation js"><span>&nbsp;&nbsp;&nbsp;*</span></span></span></div><div
+                                    class="line"><span class="source js"><span
+                                    class="comment block documentation js"><span>&nbsp;&nbsp;&nbsp;*&nbsp;Do&nbsp;all&nbsp;the&nbsp;processing&nbsp;you&nbsp;need&nbsp;and&nbsp;when&nbsp;ready&nbsp;call&nbsp;the&nbsp;callback&nbsp;passing&nbsp;the&nbsp;new&nbsp;data&nbsp;structure</span></span></span></div><div
+                                    class="line"><span class="source js"><span
+                                    class="comment block documentation js"><span>&nbsp;&nbsp;&nbsp;</span><span
+                                    class="punctuation definition comment js"><span>*/</span></span></span></span></div><div
+                                    class="line"><span class="source js"><span>&nbsp;&nbsp;</span><span
+                                    class="meta function-call js"><span
+                                    class="entity name function js"><span>callback</span></span><span
+                                    class="meta js"><span
+                                    class="punctuation definition begin round js"><span>(</span></span><span
+                                    class="meta brace curly js"><span>{</span></span></span></span></span></div><div
+                                    class="line"><span class="source js"><span class="meta function-call js"><span
+                                    class="meta js"><span>&nbsp;&nbsp;&nbsp;&nbsp;commits</span><span
+                                    class="keyword operator assignment js"><span>:</span></span><span>&nbsp;</span><span
+                                    class="variable other object js"><span>data</span></span><span
+                                    class="meta delimiter period js"><span>.</span></span><span
+                                    class="variable other object js"><span>commits</span></span><span
+                                    class="meta js"><span
+                                    class="meta delimiter method period js"><span>.</span></span><span
+                                    class="entity name function js"><span>map</span></span><span class="meta js"><span
+                                    class="punctuation definition begin round js"><span>(</span></span><span>doSomething</span><span
+                                    class="punctuation definition end round js"><span>)</span></span></span></span><span
+                                    class="meta delimiter object comma js"><span>,</span></span></span></span></span></div><div
+                                    class="line"><span class="source js"><span class="meta function-call js"><span
+                                    class="meta js"><span>&nbsp;&nbsp;&nbsp;&nbsp;extra</span><span
+                                    class="keyword operator assignment js"><span>:</span></span><span>&nbsp;</span><span
+                                    class="meta brace curly js"><span>{</span></span><span>&nbsp;additional</span><span
+                                    class="keyword operator assignment js"><span>:</span></span><span>&nbsp;</span><span
+                                    class="string quoted single js"><span
+                                    class="punctuation definition string begin js"><span>'</span></span><span>data</span><span
+                                    class="punctuation definition string end js"><span>'</span></span></span><span>&nbsp;</span><span
+                                    class="meta brace curly js"><span>}</span></span><span
+                                    class="meta delimiter object comma js"><span>,</span></span></span></span></span></div><div
+                                    class="line"><span class="source js"><span class="meta function-call js"><span
+                                    class="meta js"><span>&nbsp;&nbsp;</span><span
+                                    class="meta brace curly js"><span>}</span></span><span
+                                    class="punctuation definition end round js"><span>)</span></span></span></span><span
+                                    class="punctuation terminator statement js"><span>;</span></span></span></div><div
+                                    class="line"><span class="source js"><span>&nbsp;&nbsp;</span><span
+                                    class="comment line double-slash js"><span
+                                    class="punctuation definition comment js"><span>//</span></span></span></span></div><div
+                                    class="line"><span class="source js"><span
+                                    class="punctuation definition function end curly js"><span>}</span></span><span
+                                    class="punctuation terminator statement js"><span>;</span></span></span></div></pre>
+                        </div>
+                        <p>The object passed to the callback will be merged with the input data and passed back to the
+                            template.</p>
+                        <p>For an example check <code>samples/post-processing.js</code></p>
+                        <h3><a aria-hidden="true" class="deep-link" href="#usage-as-a-module"
+                               id="user-content-usage-as-a-module" rel="nofollow">
+                            <svg aria-hidden="true" class="deep-link-icon" height="16" version="1.1" viewBox="0 0 16 16"
+                                 width="16">
+                                <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                            </svg>
+                        </a>Usage as a module
+                        </h3>
+                        <h4><a aria-hidden="true" class="deep-link" href="#installation-1"
+                               id="user-content-installation-1" rel="nofollow">
+                            <svg aria-hidden="true" class="deep-link-icon" height="16" version="1.1" viewBox="0 0 16 16"
+                                 width="16">
+                                <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                            </svg>
+                        </a>Installation
+                        </h4>
+                        <p>npm install --save-dev git-release-notes</p>
+                        <h4><a aria-hidden="true" class="deep-link" href="#usage-1" id="user-content-usage-1"
+                               rel="nofollow">
+                            <svg aria-hidden="true" class="deep-link-icon" height="16" version="1.1" viewBox="0 0 16 16"
+                                 width="16">
+                                <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                            </svg>
+                        </a>Usage
+                        </h4>
+                        <p>Inside your script file</p>
+                        <div class="highlight js">
+                            <pre class="editor editor-colors"><div class="line"><span class="source js"><span
+                                    class="storage type js"><span>const</span></span><span>&nbsp;</span><span
+                                    class="constant other js"><span>releaseNotes</span></span><span>&nbsp;</span><span
+                                    class="keyword operator assignment js"><span>=</span></span><span>&nbsp;</span><span
+                                    class="meta function-call js"><span class="support function js"><span>require</span></span><span
+                                    class="meta js"><span
+                                    class="punctuation definition begin round js"><span>(</span></span><span
+                                    class="string quoted single js"><span
+                                    class="punctuation definition string begin js"><span>'</span></span><span>git-release-notes</span><span
+                                    class="punctuation definition string end js"><span>'</span></span></span><span
+                                    class="punctuation definition end round js"><span>)</span></span></span></span><span
+                                    class="punctuation terminator statement js"><span>;</span></span></span></div><div
+                                    class="line"><span class="source js"><span>&nbsp;</span></span></div><div
+                                    class="line"><span class="source js"><span
+                                    class="storage type js"><span>const</span></span><span>&nbsp;</span><span
+                                    class="constant other js"><span>OPTIONS</span></span><span>&nbsp;</span><span
+                                    class="keyword operator assignment js"><span>=</span></span><span>&nbsp;</span><span
+                                    class="meta brace curly js"><span>{</span></span></span></div><div
+                                    class="line"><span class="source js"><span>&nbsp;&nbsp;branch</span><span
+                                    class="keyword operator assignment js"><span>:</span></span><span>&nbsp;</span><span
+                                    class="string quoted single js"><span
+                                    class="punctuation definition string begin js"><span>'</span></span><span>master</span><span
+                                    class="punctuation definition string end js"><span>'</span></span></span><span
+                                    class="meta delimiter object comma js"><span>,</span></span></span></div><div
+                                    class="line"><span class="source js"><span
+                                    class="meta brace curly js"><span>}</span></span><span
+                                    class="punctuation terminator statement js"><span>;</span></span></span></div><div
+                                    class="line"><span class="source js"><span
+                                    class="storage type js"><span>const</span></span><span>&nbsp;</span><span
+                                    class="constant other js"><span>RANGE</span></span><span>&nbsp;</span><span
+                                    class="keyword operator assignment js"><span>=</span></span><span>&nbsp;</span><span
+                                    class="string quoted single js"><span
+                                    class="punctuation definition string begin js"><span>'</span></span><span>v1.0.0..v2.0.0</span><span
+                                    class="punctuation definition string end js"><span>'</span></span></span><span
+                                    class="punctuation terminator statement js"><span>;</span></span></span></div><div
+                                    class="line"><span class="source js"><span
+                                    class="storage type js"><span>const</span></span><span>&nbsp;</span><span
+                                    class="constant other js"><span>TEMPLATE</span></span><span>&nbsp;</span><span
+                                    class="keyword operator assignment js"><span>=</span></span><span>&nbsp;</span><span
+                                    class="string quoted single js"><span
+                                    class="punctuation definition string begin js"><span>'</span></span><span>markdown</span><span
+                                    class="punctuation definition string end js"><span>'</span></span></span><span
+                                    class="punctuation terminator statement js"><span>;</span></span></span></div><div
+                                    class="line"><span class="source js"><span>&nbsp;</span></span></div><div
+                                    class="line"><span class="source js"><span class="meta function-call js"><span
+                                    class="entity name function js"><span>releaseNotes</span></span><span
+                                    class="meta js"><span
+                                    class="punctuation definition begin round js"><span>(</span></span><span
+                                    class="constant other js"><span>OPTIONS</span></span><span
+                                    class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;</span><span
+                                    class="constant other js"><span>RANGE</span></span><span
+                                    class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;</span><span
+                                    class="constant other js"><span>TEMPLATE</span></span><span
+                                    class="punctuation definition end round js"><span>)</span></span></span></span></span></div><div
+                                    class="line"><span class="source js"><span class="meta js"><span
+                                    class="meta delimiter method period js"><span>.</span></span><span
+                                    class="entity name function js"><span>then</span></span><span class="meta js"><span
+                                    class="punctuation definition begin round js"><span>(</span></span><span
+                                    class="meta function js"><span class="meta js"><span
+                                    class="punctuation definition begin round js"><span>(</span></span><span
+                                    class="variable function js"><span>changelog</span></span><span
+                                    class="punctuation definition end round js"><span>)</span></span></span><span>&nbsp;</span><span
+                                    class="storage type function js"><span>=&gt;</span></span></span><span>&nbsp;</span><span
+                                    class="punctuation definition function begin curly js"><span>{</span></span></span></span></span></div><div
+                                    class="line"><span class="source js"><span class="meta js"><span
+                                    class="meta js"><span>&nbsp;&nbsp;</span><span
+                                    class="entity name type object console js"><span>console</span></span><span
+                                    class="meta js"><span
+                                    class="meta delimiter method period js"><span>.</span></span><span
+                                    class="support function console js"><span>log</span></span><span
+                                    class="meta js"><span
+                                    class="punctuation definition begin round js"><span>(</span></span><span
+                                    class="string quoted template js"><span
+                                    class="punctuation definition string begin js"><span>`</span></span><span>Changelog&nbsp;between&nbsp;</span><span
+                                    class="source js embedded source"><span
+                                    class="punctuation section embedded js"><span>${</span></span><span
+                                    class="constant other js"><span>RANGE</span></span><span
+                                    class="punctuation section embedded js"><span>}</span></span></span><span
+                                    class="constant character js"><span>\n</span><span>\n</span></span><span
+                                    class="source js embedded source"><span
+                                    class="punctuation section embedded js"><span>${</span></span><span>changelog</span><span
+                                    class="punctuation section embedded js"><span>}</span></span></span><span
+                                    class="punctuation definition string end js"><span>`</span></span></span><span
+                                    class="punctuation definition end round js"><span>)</span></span></span></span><span
+                                    class="punctuation terminator statement js"><span>;</span></span></span></span></span></div><div
+                                    class="line"><span class="source js"><span class="meta js"><span
+                                    class="meta js"><span
+                                    class="punctuation definition function end curly js"><span>}</span></span><span
+                                    class="punctuation definition end round js"><span>)</span></span></span></span></span></div><div
+                                    class="line"><span class="source js"><span class="meta js"><span
+                                    class="meta delimiter method period js"><span>.</span></span><span
+                                    class="entity name function js"><span>catch</span></span><span class="meta js"><span
+                                    class="punctuation definition begin round js"><span>(</span></span><span
+                                    class="meta function js"><span class="meta js"><span
+                                    class="punctuation definition begin round js"><span>(</span></span><span
+                                    class="variable function js"><span>ex</span></span><span
+                                    class="punctuation definition end round js"><span>)</span></span></span><span>&nbsp;</span><span
+                                    class="storage type function js"><span>=&gt;</span></span></span><span>&nbsp;</span><span
+                                    class="punctuation definition function begin curly js"><span>{</span></span></span></span></span></div><div
+                                    class="line"><span class="source js"><span class="meta js"><span
+                                    class="meta js"><span>&nbsp;&nbsp;</span><span
+                                    class="entity name type object console js"><span>console</span></span><span
+                                    class="meta js"><span
+                                    class="meta delimiter method period js"><span>.</span></span><span
+                                    class="support function console js"><span>error</span></span><span
+                                    class="meta js"><span
+                                    class="punctuation definition begin round js"><span>(</span></span><span>ex</span><span
+                                    class="punctuation definition end round js"><span>)</span></span></span></span><span
+                                    class="punctuation terminator statement js"><span>;</span></span></span></span></span></div><div
+                                    class="line"><span class="source js"><span class="meta js"><span
+                                    class="meta js"><span>&nbsp;&nbsp;</span><span class="support variable js"><span>process</span></span><span
+                                    class="meta js"><span
+                                    class="meta delimiter method period js"><span>.</span></span><span
+                                    class="entity name function js"><span>exit</span></span><span class="meta js"><span
+                                    class="punctuation definition begin round js"><span>(</span></span><span
+                                    class="constant numeric decimal js"><span>1</span></span><span
+                                    class="punctuation definition end round js"><span>)</span></span></span></span><span
+                                    class="punctuation terminator statement js"><span>;</span></span></span></span></span></div><div
+                                    class="line"><span class="source js"><span class="meta js"><span
+                                    class="meta js"><span
+                                    class="punctuation definition function end curly js"><span>}</span></span><span
+                                    class="punctuation definition end round js"><span>)</span></span></span></span><span
+                                    class="punctuation terminator statement js"><span>;</span></span></span></div></pre>
+                        </div>
+                        <h4><a aria-hidden="true" class="deep-link" href="#options-1" id="user-content-options-1"
+                               rel="nofollow">
+                            <svg aria-hidden="true" class="deep-link-icon" height="16" version="1.1" viewBox="0 0 16 16"
+                                 width="16">
+                                <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                            </svg>
+                        </a>Options
+                        </h4>
+                        <p>The syntax reflects the command line parameters, so options is an object containing <code>path</code>,
+                            <code>branch</code>, <code>title</code> and so on. You can refer to the list of options in
+                            the command line usage section. You can use either the long or short syntax, the module will
+                            use the same defaults as the command line if an option is missing.</p>
+                        <p>However, there is a little difference between module usage and CLI of the <code>script</code>
+                            parameter. When used as CLI, it receives a path link to a JS module file, but used as a
+                            module, it receives a function:</p>
+                        <div class="highlight js">
+                            <pre class="editor editor-colors"><div class="line"><span class="source js"><span
+                                    class="meta function-call js"><span class="entity name function js"><span>releaseNotes</span></span><span
+                                    class="meta js"><span
+                                    class="punctuation definition begin round js"><span>(</span></span><span
+                                    class="meta brace curly js"><span>{</span></span></span></span></span></div><div
+                                    class="line"><span class="source js"><span class="meta function-call js"><span
+                                    class="meta js"><span>&nbsp;&nbsp;branch</span><span
+                                    class="keyword operator assignment js"><span>:</span></span><span>&nbsp;</span><span
+                                    class="string quoted single js"><span
+                                    class="punctuation definition string begin js"><span>'</span></span><span>master</span><span
+                                    class="punctuation definition string end js"><span>'</span></span></span><span
+                                    class="meta delimiter object comma js"><span>,</span></span></span></span></span></div><div
+                                    class="line"><span class="source js"><span class="meta function-call js"><span
+                                    class="meta js"><span>&nbsp;&nbsp;</span><span class="meta function json js"><span
+                                    class="entity name function js"><span>script</span></span><span
+                                    class="keyword operator assignment js"><span>:</span></span><span>&nbsp;</span><span
+                                    class="meta js"><span
+                                    class="punctuation definition begin round js"><span>(</span></span><span
+                                    class="variable function js"><span>data</span></span><span
+                                    class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;</span><span
+                                    class="variable function js"><span>callback</span></span><span
+                                    class="punctuation definition end round js"><span>)</span></span></span><span>&nbsp;</span><span
+                                    class="storage type function js"><span>=&gt;</span></span></span><span>&nbsp;</span><span
+                                    class="punctuation definition function begin curly js"><span>{</span></span></span></span></span></div><div
+                                    class="line"><span class="source js"><span class="meta function-call js"><span
+                                    class="meta js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                    class="meta function-call js"><span
+                                    class="entity name function js"><span>callback</span></span><span
+                                    class="meta js"><span
+                                    class="punctuation definition begin round js"><span>(</span></span><span
+                                    class="meta brace curly js"><span>{</span></span></span></span></span></span></span></div><div
+                                    class="line"><span class="source js"><span class="meta function-call js"><span
+                                    class="meta js"><span class="meta function-call js"><span class="meta js"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foo</span><span
+                                    class="keyword operator assignment js"><span>:</span></span><span>&nbsp;</span><span
+                                    class="string quoted single js"><span
+                                    class="punctuation definition string begin js"><span>'</span></span><span>bar</span><span
+                                    class="punctuation definition string end js"><span>'</span></span></span></span></span></span></span></span></div><div
+                                    class="line"><span class="source js"><span class="meta function-call js"><span
+                                    class="meta js"><span class="meta function-call js"><span class="meta js"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+                                    class="meta brace curly js"><span>}</span></span><span
+                                    class="punctuation definition end round js"><span>)</span></span></span></span></span></span></span></div><div
+                                    class="line"><span class="source js"><span class="meta function-call js"><span
+                                    class="meta js"><span>&nbsp;&nbsp;</span><span
+                                    class="punctuation definition function end curly js"><span>}</span></span></span></span></span></div><div
+                                    class="line"><span class="source js"><span class="meta function-call js"><span
+                                    class="meta js"><span class="meta brace curly js"><span>}</span></span><span
+                                    class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;</span><span
+                                    class="constant other js"><span>RANGE</span></span><span
+                                    class="meta delimiter object comma js"><span>,</span></span><span>&nbsp;</span><span
+                                    class="constant other js"><span>TEMPLATE</span></span><span
+                                    class="punctuation definition end round js"><span>)</span></span></span></span></span></div></pre>
+                        </div>
+                        <h3><a aria-hidden="true" class="deep-link" href="#typescript" id="user-content-typescript"
+                               rel="nofollow">
+                            <svg aria-hidden="true" class="deep-link-icon" height="16" version="1.1" viewBox="0 0 16 16"
+                                 width="16">
+                                <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                            </svg>
+                        </a>Typescript
+                        </h3>
+                        <p><code>git-release-notes</code> includes <a href="http://www.typescriptlang.org/"
+                                                                      rel="nofollow">Typescript</a> definitions.</p>
+                        <div class="highlight ts">
+                            <pre class="editor editor-colors"><div class="line"><span class="source"><span
+                                    class="meta import"><span
+                                    class="keyword control import"><span>import</span></span><span>&nbsp;</span><span
+                                    class="constant language"><span>*</span></span><span>&nbsp;</span><span
+                                    class="keyword control"><span>as</span></span><span>&nbsp;</span><span
+                                    class="variable other readwrite alias"><span>releaseNotes</span></span><span>&nbsp;</span><span
+                                    class="keyword control"><span>from</span></span><span>&nbsp;</span><span
+                                    class="string quoted double"><span
+                                    class="punctuation definition string begin"><span>"</span></span><span>git-release-notes</span><span
+                                    class="punctuation definition string end"><span>"</span></span></span></span><span
+                                    class="punctuation terminator statement"><span>;</span></span></span></div><div
+                                    class="line"><span class="source"><span class="entity name function"><span>releaseNotes</span></span><span
+                                    class="meta brace round"><span>(</span></span><span class="meta"><span
+                                    class="punctuation definition block"><span>{</span></span><span>&nbsp;</span><span
+                                    class="meta object member"><span class="variable other readwrite"><span>path</span></span><span>&nbsp;</span></span><span
+                                    class="punctuation definition block"><span>}</span></span></span><span
+                                    class="punctuation separator comma"><span>,</span></span><span>&nbsp;</span><span
+                                    class="variable other readwrite"><span>range</span></span><span
+                                    class="punctuation separator comma"><span>,</span></span><span>&nbsp;</span><span
+                                    class="variable other constant"><span>TEMPLATE</span></span><span
+                                    class="meta brace round"><span>)</span></span><span
+                                    class="punctuation terminator statement"><span>;</span></span></span></div></pre>
+                        </div>
+                        <h3><a aria-hidden="true" class="deep-link" href="#debug" id="user-content-debug"
+                               rel="nofollow">
+                            <svg aria-hidden="true" class="deep-link-icon" height="16" version="1.1" viewBox="0 0 16 16"
+                                 width="16">
+                                <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                            </svg>
+                        </a>Debug
+                        </h3>
+                        <p>If your post processing script or template throws an exception, the JSON data will be written
+                            to the file system in the same folder as the processing script.</p>
+                        <p>The DEBUG environment variable can also be useful for fault diagnosis:</p>
+                        <h4><a aria-hidden="true" class="deep-link" href="#linux" id="user-content-linux"
+                               rel="nofollow">
+                            <svg aria-hidden="true" class="deep-link-icon" height="16" version="1.1" viewBox="0 0 16 16"
+                                 width="16">
+                                <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                            </svg>
+                        </a>Linux
+                        </h4>
+                        <pre><code>export DEBUG=release-notes:*
+git-release-notes ...
+</code></pre>
+                        <h4><a aria-hidden="true" class="deep-link" href="#windows" id="user-content-windows"
+                               rel="nofollow">
+                            <svg aria-hidden="true" class="deep-link-icon" height="16" version="1.1" viewBox="0 0 16 16"
+                                 width="16">
+                                <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+                            </svg>
+                        </a>Windows
+                        </h4>
+                        <pre><code>SET DEBUG=release-notes:cli,release-notes:externalscript
+git-release-notes ...
+</code></pre>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </div>
+</div>
+</body>
+</html>
