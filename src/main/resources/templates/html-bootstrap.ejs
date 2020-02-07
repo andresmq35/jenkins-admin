@@ -27,7 +27,6 @@
                  <table id="commitTable" class="table table-bordered table-striped table-hover">
                  <thead>
                   <tr>
-                    <th>Date</th>
                     <th>Author</th>
                     <th>Commit</th>
                   </tr>
@@ -35,15 +34,10 @@
                   <tbody>
                   <%
                     commits.forEach(function (commit) {
-
-                    var commitDate = new Date(Date.parse(commit.committerDate))
-                    var formattedDate = dateFnsFormat(commitDate, [format='DD-MMM-YYYY HH:mm'])
-                    var sortableDate = dateFnsFormat(commitDate, [format='YYYY-MM-DDTHH:mm:ss'])
                     messageLines = commit.messageLines.join("\n")
                   %>
                     <tr>
 
-                        <td nowrap="nowrap"><span style="display:none"><%= sortableDate %>&nbsp;</span><%= formattedDate %></td>
                         <td><%= commit.authorName %></td>
                         <td>
                             <%= commit.title %>
