@@ -1,4 +1,4 @@
-package io.open.cloud.jenkins
+package io.open.cloud.jenkins.admin
 
 import jenkins.model.Jenkins
 
@@ -7,7 +7,9 @@ final def numToKeep = 10
 final def artifactDaysToKeep = 5
 final def artifactNumToKeep = 3
 
-def enforcePolicy = {
+def agentNode = ${NODE}
+
+def EnforcePolicy = {
     Jenkins.instanceOrNull.allItems(hudson.model.Job).each { job ->
         def name = job.fullDisplayName
         if (job.isBuildable() && job.supportsLogRotator() && job.getProperty(jenkins.model.BuildDiscarderProperty) == null) {
@@ -32,7 +34,7 @@ def verifyPolicies = {
 
     }
 }
-node('master') {
+node(agentNode) {
     stage('Print Policy') {
         println '--- Policy ---'
         println 'daysToKeep : 30'
@@ -42,6 +44,6 @@ node('master') {
         println '--- End Policy ---'
     }
     stage('Enforce Policy') {
-        enforcePolicy()
+        EnforcePolicy()
     }
 }
