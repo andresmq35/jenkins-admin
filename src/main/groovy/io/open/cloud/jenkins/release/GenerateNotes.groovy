@@ -15,8 +15,11 @@ def GenerateNotes = {
     if(templateFn.contains('markdown')) {
         extension = 'md'
     }
-    def cmd = "git-release-notes ${from}..${to} ./${templateFn} > ${appName}-${to}.${extension}"
-    println "CMD: ${cmd}"
+    def inTemplate = "git-release-notes ${from}..${to} ./${templateFn}"
+    def outFile = "${appName}-${to}.${extension}"
+    println "--- Generate Command ---"
+    println inTemplate +  ' > ' +  outFile
+    println "--- End Generate Command ---"
 
     node(agentNode) {
         stage('Clean Workspace') {
@@ -35,7 +38,9 @@ def GenerateNotes = {
             httpRequest ignoreSslErrors: true, outputFile: templateFn, responseHandle: 'NONE', url: templateUrl
         }
         stage('Generate Notes') {
-            sh cmd
+            sh inTemplate + ' > ' + outFile
+
         }
     }
 }
+
